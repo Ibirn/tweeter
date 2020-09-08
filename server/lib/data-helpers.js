@@ -1,5 +1,8 @@
 "use strict";
 
+//WEIRD TO LOOK AT. This function returns an object with two functions as it's kvp.
+
+
 // Simulates the kind of delay we see with network or filesystem operations
 const simulateDelay = require("./util/simulate-delay");
 
