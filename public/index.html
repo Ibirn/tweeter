@@ -26,7 +26,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 
   <!-- App JS -->
-  <script type="text/javascript" src="/scripts/client.js"></script>
+  
 
 
 </head>
@@ -48,11 +48,12 @@
   </header>
   <!-- Page-specific (main) content here -->
   <main class="container">
-
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
-      <form method="POST" action="/tweets">
+      <!-- no method/action does need hook-->
+      <form id="tweet-form">   
         <label for="tweet-text"></label>
+        <!-- name to pass to req.body -->
         <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         <button type="submit">Tweet</button>
         <output name="counter" class="counter" for="tweet-text">140</output>
@@ -60,28 +61,9 @@
     </section>
     <!-- Feed -->
     <section class="feed">
-      <article class="tweet">
-        <header>
-          <img src="https://i.imgur.com/nlhLi3I.png">
-          <div>
-            <span class="name">Peter B Parker</span>
-            <span class="handle hide">@NYCSpidey</span>
-          </div>
-        </header>
-        <p class="content">Anyone can put on the mask.</p>
-        <hr>
-        <footer>
-          Earth 616 
-          <span>
-            <button type="submit" class="btn">F</button>
-            <button type="submit" class="btn">RT</button>
-            <button type="submit" class="btn">L</button>
-          </span>
-        </footer>
-      </article>
     </section>
-
   </main>
+  <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 </body>
 
