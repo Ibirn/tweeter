@@ -1,15 +1,14 @@
 nav {
   display: flex;
   background-image: linear-gradient( #2c599d, #5b84c4);
-  /*background: #5b84c4;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;*/
   color: #FFFFFF;
   height: 120px;
   width: 100%;
   padding: 1.5em;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
 }
 
 #logo {
