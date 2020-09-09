@@ -1,0 +1,52 @@
+article.tweet {
+  display: flex;
+  border: 3px solid #545149;
+  padding: 2%;
+  margin-top: 20px;
+  flex-direction: column;
+}
+
+article.tweet:hover {
+  box-shadow: 5px 10px #888888;
+}
+
+article.tweet header {
+  display: flex;
+}
+
+article.tweet p {
+  display: flex;
+  flex: 1;
+  width: 100%
+}
+
+article.tweet header div {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  align-items: center;
+}
+
+article.tweet hr {
+  border-top: 3px solid #545149;
+  width: 100%;
+}
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: smaller;
+  font-weight: bold;
+}
+
+.handle {
+  color: #ACAAAA;
+}
+
+article.tweet .hide {
+  visibility: hidden;
+}
+
+article.tweet:hover .hide {
+  visibility: visible;
+}
