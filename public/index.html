@@ -26,8 +26,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 
   <!-- App JS -->
-  
-
+  <script type="text/javascript" src="/scripts/client.js"></script>
 
 </head>
 
@@ -50,10 +49,8 @@
   <main class="container">
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
-      <!-- no method/action does need hook-->
       <form id="tweet-form">   
         <label for="tweet-text"></label>
-        <!-- name to pass to req.body -->
         <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         <button type="submit">Tweet</button>
         <output name="counter" class="counter" for="tweet-text">140</output>
@@ -63,7 +60,6 @@
     <section class="feed">
     </section>
   </main>
-  <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 </body>
 
