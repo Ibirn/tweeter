@@ -32,3 +32,8 @@ body {
    background-color: inherit;
    text-align: center;
  }
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
