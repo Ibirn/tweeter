@@ -34,8 +34,11 @@
   font-family: "Bungee", sans-serif;
   color: white;
   background-color: #2c599d;
-  border: 0;
   margin-top: 10px;
+}
+
+.new-tweet button:focus {
+  outline: none;
 }
 
 .new-tweet output {
