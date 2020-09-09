@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
   <!--Fonts-->
   <link
@@ -35,7 +36,6 @@
     <span id="logo">tweeter</span>
     <p><strong>Twoot</strong> a tweet</p>
   </nav>
-
   <header>
     <div>
       <img src="/images/profile-hex.png">
@@ -51,14 +51,34 @@
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form method="POST" action="/tweets">
-
         <label for="tweet-text"></label>
         <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         <button type="submit">Tweet</button>
         <output name="counter" class="counter" for="tweet-text">140</output>
       </form>
     </section>
-
+    <!-- Feed -->
+    <section >
+      <article class="tweet">
+        <header>
+          <img src="https://i.imgur.com/nlhLi3I.png">
+          <div>
+            <span class="name">Peter B Parker</span>
+            <span class="handle hide">@NYCSpidey</span>
+          </div>
+        </header>
+        <p class="content">Anyone can put on the mask.</p>
+        <hr>
+        <footer>
+          Earth 616 
+          <span>
+            <button type="submit" class="btn">F</button>
+            <button type="submit" class="btn">RT</button>
+            <button type="submit" class="btn">L</button>
+          </span>
+        </footer>
+      </article>
+    </section>
 
   </main>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
