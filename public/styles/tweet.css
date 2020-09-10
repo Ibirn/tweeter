@@ -15,9 +15,10 @@ article.tweet header {
 }
 
 article.tweet p {
-  display: flex;
+  text-align: left;
   flex: 1;
-  width: 100%
+  width: 100%;
+  overflow-wrap: break-word;
 }
 
 article.tweet header div {
