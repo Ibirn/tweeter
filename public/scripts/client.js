@@ -14,7 +14,7 @@ $(() => {
       let div = document.createElement('div');
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
-    }
+    };
     return $(`
     <article class="tweet">
       <header>
@@ -29,13 +29,13 @@ $(() => {
       <footer>
         ${moment(tweetobject.created_at).fromNow()} 
         <span>
-          <button type="submit" class="btn">F</button>
-          <button type="submit" class="btn">RT</button>
-          <button type="submit" class="btn">L</button>
+          <button type="submit" class="btn"><i class="fas fa-flag"></i></button>
+          <button type="submit" class="btn"><i class="fas fa-retweet"></i></button>
+          <button type="submit" class="btn"><i class="fas fa-heart"></i></button>
         </span>
       </footer>
     </article>
-  `)
+  `);
   };
 
   //Takes an array of tweet objects and renders them all via createTweetElement().
@@ -43,33 +43,41 @@ $(() => {
     const $feed = $('.feed');
     $feed.empty();
     for (const elem of tweetarray) {
-      console.log('elem:', elem)
+      //console.log('elem:', elem);
       $feed.prepend(createTweetElement(elem));
     }
-  }
+  };
 
   //AJAX POST request to dynamically update the page.
-  const $tweetText = $("#tweet-form")
-  $tweetText.on('submit', function (event) {
-    event.preventDefault()
+  const $tweetText = $("#tweet-form");
+  $tweetText.on('submit', function(event) {
+    event.preventDefault();
+    if($("#tweet-text").val().length === 0 || $("#tweet-text").val() === null){
+      $(".charLimit").slideUp();
+      return $(".empty").slideDown()
+    } else if ($("#tweet-text").val().length > 140){
+      $(".empty").slideUp();
+      return $(".charLimit").slideDown();
+    }
     const serializedData = $(this).serialize();
     $.post("/tweets", serializedData) //returns promise.
-      .then((response) => {
+      .then(() => {
+        $(".charLimit").slideUp();
+        $(".empty").slideUp();
         $('#tweet-text').val('');
         $(".counter").val(140);
         loadTweets();
       });
-  });
+    });
 
   //AJAX GET request to show tweets.
   const loadTweets = () => {
-    //console.log('ham')
     $.ajax('/tweets', { method: 'GET' })
-    .then(function (data) {
-      console.log('Success: ', data);
-      renderTweets(data)
-    })
-  }
+      .then(function(data) {
+        //console.log('Success: ', data);
+        renderTweets(data);
+      });
+  };
 
-  loadTweets()
-})
+  loadTweets();
+});
