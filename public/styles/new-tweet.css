@@ -50,3 +50,7 @@
 .negative {
   color: tomato;
 }
+
+.new-tweet .hide {
+  display: none;
+}
