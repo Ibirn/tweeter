@@ -24,6 +24,7 @@
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+  <script src="https://kit.fontawesome.com/8693e6062d.js" crossorigin="anonymous"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
@@ -48,6 +49,10 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+
+      <div class="charLimit hide negative">Whoops! You've used too many characters.</div>
+      <div class="empty hide negative">Whoops! You've got to write something before submitting!</div>
+
       <h2>Compose Tweet</h2>
       <form id="tweet-form">   
         <label for="tweet-text"></label>
@@ -56,6 +61,7 @@
         <output name="counter" class="counter" for="tweet-text">140</output>
       </form>
     </section>
+
     <!-- Feed -->
     <section class="feed">
     </section>
