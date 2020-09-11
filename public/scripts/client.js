@@ -6,15 +6,18 @@
 
 /* global document */
 /* eslint-env jquery */
+
 $(() => {
+
+  //Escape function to prevent malicious XSS
+  const escape = str => {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   //Turns individual tweets into HTML with values escaped.
   const createTweetElement = (tweetobject) => {
-    const escape = str => {
-      let div = document.createElement('div');
-      div.appendChild(document.createTextNode(str));
-      return div.innerHTML;
-    };
     return $(`
     <article class="tweet">
       <header>
@@ -50,12 +53,12 @@ $(() => {
 
   //AJAX POST request to dynamically update the page.
   const $tweetText = $("#tweet-form");
-  $tweetText.on('submit', function(event) {
+  $tweetText.on('submit', function (event) {
     event.preventDefault();
-    if($("#tweet-text").val().length === 0 || $("#tweet-text").val() === null){
+    if ($("#tweet-text").val().length === 0 || $("#tweet-text").val() === null) {
       $(".charLimit").slideUp();
       return $(".empty").slideDown()
-    } else if ($("#tweet-text").val().length > 140){
+    } else if ($("#tweet-text").val().length > 140) {
       $(".empty").slideUp();
       return $(".charLimit").slideDown();
     }
@@ -68,16 +71,28 @@ $(() => {
         $(".counter").val(140);
         loadTweets();
       });
-    });
+  });
 
   //AJAX GET request to show tweets.
   const loadTweets = () => {
     $.ajax('/tweets', { method: 'GET' })
-      .then(function(data) {
+      .then(function (data) {
         //console.log('Success: ', data);
         renderTweets(data);
       });
   };
+
+  //Animation of nav link to show/hide compose and auto-focus.
+  $("body > nav > p").click(function () {
+    $(".new-tweet").slideToggle("slow", function () {
+      if ($("#tweet-text").is(":visible")) {
+        $('html, body').animate({
+          scrollTop: $("#tweet-text").offset().top - 200
+        }, 1000);
+        $("#tweet-text").focus();
+      }
+    });
+  });
 
   loadTweets();
 });
