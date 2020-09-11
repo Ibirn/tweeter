@@ -25,15 +25,56 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
+main {
+  padding: 5%;
+}
 
- main {
-   padding: 5%;
-   align-content: center;
-   background-color: inherit;
-   text-align: center;
- }
+body > i.fas {
+  display: none;
+  color: tomato;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 50px;
+  border: 2px solid;
+  border-radius: 100px;
+  background-color: #f4f1ec;
+}
 
-.container {
-  display: flex;
-  flex-direction: column;
+body > i:hover {
+  color: #5b84c4;
+}
+
+@media only screen and (max-width: 768px) {
+  body > header > div > img {
+    height: 192px;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  body > nav {
+    background-image: none;
+  }
+
+  body > header {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+  }
+
+  body > header {
+    flex: 1;
+    border-radius: 10px;
+    margin: 200px 30px;
+  }
+  
+  body > main {
+    flex: 1.5;
+    margin-top: 120px;
+  }
 }
