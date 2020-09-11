@@ -1,16 +1,3 @@
-.container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.new-tweet {
-  width: 100%;
-}
-.new-tweet h2{
-  display: flex;
-  justify-content: space-between;
-}
-
 #tweet-text{
   display: flex;
   border: 0;
