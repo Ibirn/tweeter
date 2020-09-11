@@ -48,7 +48,7 @@ $(() => {
     for (const elem of tweetarray) {
       //console.log('elem:', elem);
       $feed.prepend(createTweetElement(elem));
-    }
+    };
   };
 
   //AJAX POST request to dynamically update the page.
@@ -57,11 +57,11 @@ $(() => {
     event.preventDefault();
     if ($("#tweet-text").val().length === 0 || $("#tweet-text").val() === null) {
       $(".charLimit").slideUp();
-      return $(".empty").slideDown()
+      return $(".empty").slideDown();
     } else if ($("#tweet-text").val().length > 140) {
       $(".empty").slideUp();
       return $(".charLimit").slideDown();
-    }
+    };
     const serializedData = $(this).serialize();
     $.post("/tweets", serializedData) //returns promise.
       .then(() => {
@@ -84,14 +84,29 @@ $(() => {
 
   //Animation of nav link to show/hide compose and auto-focus.
   $("body > nav > p").click(function () {
-    $(".new-tweet").slideToggle("slow", function () {
+    $(".new-tweet").slideToggle(400, function () {
       if ($("#tweet-text").is(":visible")) {
         $('html, body').animate({
-          scrollTop: $("#tweet-text").offset().top - 200
-        }, 1000);
+          scrollTop: $("#tweet-text").offset().top - 320
+        }, 500);
         $("#tweet-text").focus();
-      }
+      };
     });
+  });
+
+  //Scroll to top button hide/show and functionality.
+  $(document).scroll(function () {
+    const userY = $(this).scrollTop();
+    if (userY > 50 && $(window).width() < 1024) {
+      $("body > i").fadeIn();
+      $("body > nav > p").fadeOut()
+    } else {
+      $("body > i").fadeOut();
+      $("body > nav > p").fadeIn()
+    }
+  });
+  $(".fa-arrow-up").click(function () {
+    $('html,body').animate({ scrollTop: 0 }, 500);
   });
 
   loadTweets();
