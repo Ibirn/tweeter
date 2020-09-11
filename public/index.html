@@ -25,23 +25,21 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
   <script src="https://kit.fontawesome.com/8693e6062d.js" crossorigin="anonymous"></script>
-
-  <!-- App JS -->
-  <script type="text/javascript" src="/scripts/client.js"></script>
-
 </head>
 
 <body>
   <!-- Top nav bar (fixed) -->
   <nav>
     <span id="logo">tweeter</span>
-    <p><strong>Twoot</strong> a tweet</p>
+    <p><strong>Write</strong> a tweet <i class="fas fa-arrow-down"></i>
+    </p>
+    
   </nav>
+  
   <header>
     <div>
       <img src="/images/profile-hex.png">
     </div>
-    <br>
     <div>
       <h2><span id="firstname">Keagan</span> <span id="lastname">Ricciuti</span></h2>
     </div>
@@ -49,10 +47,8 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-
       <div class="charLimit hide negative">Whoops! You've used too many characters.</div>
       <div class="empty hide negative">Whoops! You've got to write something before submitting!</div>
-
       <h2>Compose Tweet</h2>
       <form id="tweet-form">   
         <label for="tweet-text"></label>
@@ -61,11 +57,13 @@
         <output name="counter" class="counter" for="tweet-text">140</output>
       </form>
     </section>
-
-    <!-- Feed -->
+    <!-- Tweet Feed -->
     <section class="feed">
     </section>
   </main>
+  <i class="fas fa-arrow-up"></i>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 </body>
 
