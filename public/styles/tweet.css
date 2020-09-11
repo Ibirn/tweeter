@@ -15,8 +15,6 @@ article.tweet header {
 }
 
 article.tweet p {
-  text-align: left;
-  flex: 1;
   width: 100%;
   overflow-wrap: break-word;
 }
@@ -50,4 +48,20 @@ article.tweet .hide {
 
 article.tweet:hover .hide {
   visibility: visible;
+}
+
+article.tweet:hover .fa-flag {
+  color: goldenrod;
+}
+
+article.tweet:hover .fa-retweet {
+  color: #5b84c4;
+}
+
+article.tweet:hover .fa-heart {
+  color: palevioletred;
+}
+
+article.tweet .fas {
+  color: #545149;
 }
