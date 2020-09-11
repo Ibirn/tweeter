@@ -15,3 +15,17 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- body-parser 1.15.2 or above
+- chance 1.0.2 or above
+- md5 2.1.0 or above
+
+## Stretch Goals:
+- When scrolling in mobile, a button for scroll-to-top functionality appears.
+- Clicking on the 'Write a tweet' text will show or hide the compose area, and automatically focus the user in the text area.
+
+
+## Preview
+
+!["Tweeter Desktop"](https://github.com/Ibirn/tweeter/blob/master/docs/tweeterhome.jpg)
+!["Tweeter Mobile"](https://github.com/Ibirn/tweeter/blob/master/docs/Tweetermobile.jpg)
+
